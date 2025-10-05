@@ -16,10 +16,14 @@ public class User {
     @Email
     @NotBlank
     private String email;
-    public User(Long id, String name, String email) {
+    @NotBlank
+    private String password;
+
+    public User(Long id, String name, String email, String password) {
         this.id = id;
         this.name = name;
         this.email = email;
+        this.password = password;
     }
 
     public User() {
@@ -36,4 +40,9 @@ public class User {
     public String getEmail() {
         return email;
     }
+
+    public String getPassword() {
+        return password;
+    }
+
 }
