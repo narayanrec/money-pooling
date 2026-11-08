@@ -2,6 +2,7 @@ package com.startup.usergroup.controllers;
 
 import com.startup.usergroup.models.User;
 import com.startup.usergroup.repositories.UserRepository;
+import jakarta.validation.Valid;
 import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -17,7 +18,7 @@ public class UserController {
     protected UserRepository userRepository;
 
     @PostMapping
-    public User createUser(@RequestBody User user) {
+    public User createUser(@Valid @RequestBody User user) {
         user = getUserWithHashedPassword(user);
         return userRepository.save(user);
     }
